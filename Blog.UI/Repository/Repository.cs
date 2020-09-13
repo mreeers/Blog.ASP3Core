@@ -21,7 +21,7 @@ namespace Blog.UI.Controllers.Repository
             _context.Posts.Add(post);
         }
 
-        public List<Post> GetAllPosts(int id)
+        public List<Post> GetAllPosts()
         {
             return _context.Posts.ToList();
         }
