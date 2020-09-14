@@ -11,11 +11,22 @@
             Home
         </a>
         <a asp-controller="Home" asp-action="Post">
-            Post
+            Create Post
         </a>
-        <a asp-controller="Home" asp-action="Edit">
-            Edit
-        </a>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Auth" asp-action="Logout">
+                Logout
+            </a>
+        }
+        else 
+        { 
+            <a asp-controller="Auth" asp-action="Login">
+                Sing In
+            </a>
+        }
+        
+
     </div>
     <div>
         @RenderBody()
