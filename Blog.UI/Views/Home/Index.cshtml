@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Post>
 @{
 }
-<h1>Home</h1>
+<h1>Home page</h1>
 <div>
     <ul>
         @foreach(var post in Model)
@@ -9,14 +9,6 @@
         <li>
             <a asp-controller="Home" asp-action="Post" asp-route-id="@post.Id">
                 @post.Title
-            </a>
-            -
-            <a asp-controller="Home" asp-action="Edit" asp-route-id="@post.Id">
-                Edit
-            </a>
-            -
-            <a asp-controller="Home" asp-action="Remove" asp-route-id="@post.Id">
-                Delete
             </a>
         </li>
         }

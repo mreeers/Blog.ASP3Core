@@ -10,8 +10,11 @@
         <a asp-controller="Home" asp-action="Index">
             Home
         </a>
-        <a asp-controller="Home" asp-action="Post">
+        <a asp-controller="Panel" asp-action="Post">
             Create Post
+        </a>
+        <a asp-controller="Panel" asp-action="Index">
+            Admin panel
         </a>
         @if (User.Identity.IsAuthenticated)
         {
@@ -19,13 +22,13 @@
                 Logout
             </a>
         }
-        else 
-        { 
+        else
+        {
             <a asp-controller="Auth" asp-action="Login">
                 Sing In
             </a>
         }
-        
+
 
     </div>
     <div>
