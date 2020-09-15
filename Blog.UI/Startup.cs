@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Blog.UI.Controllers.Repository;
 using Blog.UI.Controllers.Repository.Interface;
 using Blog.UI.Data;
+using Blog.UI.Data.FileManager;
+using Blog.UI.Data.FileManager.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +33,6 @@ namespace Blog.UI
         {
             services.AddMvc();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IRepository, Repository>();
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
@@ -46,6 +47,8 @@ namespace Blog.UI
                 options.LoginPath = "/Auth/Login";
             });
 
+            services.AddTransient<IRepository, Repository>();
+            services.AddTransient<IFileManager, FileManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +62,7 @@ namespace Blog.UI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
