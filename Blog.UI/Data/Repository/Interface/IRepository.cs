@@ -10,6 +10,7 @@ namespace Blog.UI.Controllers.Repository.Interface
     {
         Post GetPost(int id);
         List<Post> GetAllPosts();
+        List<Post> GetAllPosts(string categoty);
         void AddPost(Post post);
         void RemovePost(int id);
         void UpdatePost(Post post);

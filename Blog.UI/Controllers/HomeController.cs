@@ -19,9 +19,9 @@ namespace Blog.UI.Controllers
             _fileManager = fileManager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string categoty)
         {
-            var posts = _repository.GetAllPosts();
+            var posts = string.IsNullOrEmpty(categoty) ? _repository.GetAllPosts() : _repository.GetAllPosts(categoty);
             return View(posts);
         }
 

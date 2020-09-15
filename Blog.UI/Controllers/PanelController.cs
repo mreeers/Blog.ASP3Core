@@ -44,7 +44,10 @@ namespace Blog.UI.Controllers
                     Id = post.Id,
                     Title = post.Title,
                     Body = post.Body,
-                    CurrentImage = post.Image
+                    CurrentImage = post.Image,
+                    Category = post.Category,
+                    Description = post.Description,
+                    Tags = post.Tags
                 });
             }
         }
@@ -57,7 +60,9 @@ namespace Blog.UI.Controllers
                 Id = vm.Id,
                 Title = vm.Title,
                 Body = vm.Body,
-                
+                Category = vm.Category,
+                Description = vm.Description,
+                Tags = vm.Tags
             };
 
             if (vm.Image == null)

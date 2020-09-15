@@ -48,5 +48,11 @@ namespace Blog.UI.Controllers.Repository
             }
             return false;
         }
+
+        public List<Post> GetAllPosts(string categoty)
+        {
+            Func<Post, bool> InCategory = (post) => { return post.Category.ToLower().Equals(categoty.ToLower()); };
+            return _context.Posts.Where(post => InCategory(post)).ToList();
+        }
     }
 }
