@@ -4,32 +4,31 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
+    <link href="~/css/Style.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        <a asp-controller="Home" asp-action="Index">
-            Home
-        </a>
-        <a asp-controller="Panel" asp-action="Post">
-            Create Post
-        </a>
-        <a asp-controller="Panel" asp-action="Index">
-            Admin panel
-        </a>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <a asp-controller="Auth" asp-action="Logout">
-                Logout
+        <nav>
+            <a asp-controller="Home" asp-action="Index">
+                Home
             </a>
-        }
-        else
-        {
-            <a asp-controller="Auth" asp-action="Login">
-                Sing In
+            <a asp-controller="Panel" asp-action="Index">
+                Admin panel
             </a>
-        }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Auth" asp-action="Logout">
+                    Logout
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="Login">
+                    Sing In
+                </a>
+            }
 
-
+        </nav>
     </div>
     <div>
         @RenderBody()
